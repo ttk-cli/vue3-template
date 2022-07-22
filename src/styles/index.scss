@@ -1,0 +1,37 @@
+:root {
+  --bg-color: #fefefe;
+  --text-color: #171717;
+}
+.dark {
+  --bg-color: #171717;
+  --text-color: #fefefe;
+}
+html {
+  background-color: var(--bg-color);
+  line-height: 1.5;
+  color: var(--text-color);
+  scrollbar-gutter: stable;
+}
+body {
+  margin: 0;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: rgba(128, 128, 128, 0.2);
+}
+::-webkit-scrollbar-thumb:active {
+  border-radius: 3px;
+  background: rgba(128, 128, 128, 0.5);
+}
+a {
+  text-decoration: none;
+  font-weight: inherit;
+  color: var(--text-color--);
+}

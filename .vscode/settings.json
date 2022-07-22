@@ -1,0 +1,17 @@
+{
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "scss.lint.unknownAtRules": "ignore",
+  "stylelint.validate": ["css", "scss", "vue", "html"],
+  "eslint.validate": ["typescript", "vue", "html", "json"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "json.format.enable": false,
+  "files.associations": {
+    "*.json": "jsonc"
+  },
+  "files.eol": "\n"
+}
