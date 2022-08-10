@@ -5,7 +5,14 @@ export default defineConfig({
   presets: [
     presetAttributify(),
     presetUno(),
-    presetIcons(),
+    presetIcons({
+      prefix: '',
+      extraProperties: {
+        display: 'inline-block',
+        cursor: 'pointer',
+        'font-size': '20px',
+      },
+    }),
     presetRemToPx({
       baseFontSize: 4,
     }) as Preset,
