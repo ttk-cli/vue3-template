@@ -1,3 +1,13 @@
+import {
+  onBeforeMount,
+  onBeforeUnmount,
+  onBeforeUpdate,
+  onErrorCaptured,
+  onMounted,
+  onUnmounted,
+  onUpdated,
+} from 'vue'
+
 export function useInit() {
   onBeforeMount(() => {
     console.log('onBeforeMount')
