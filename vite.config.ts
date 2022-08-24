@@ -6,9 +6,11 @@ import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vite'
 import Pages from 'vite-plugin-pages'
 
+const isBuild = process.env.npm_lifecycle_event === 'build'
+
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: './',
+  base: isBuild ? 'https://static.jukefeng.com/test/' : './',
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),

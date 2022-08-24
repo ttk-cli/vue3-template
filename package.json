@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vue-tsc --noEmit && vite build && npm run qn",
     "preview": "vite preview",
     "tsc": "vue-tsc --noEmit --skipLibCheck",
     "lint": "eslint --ext .vue --ext .js --ext .ts src/ --fix",
-    "style": "stylelint \"src/**/*.(vue|scss|css)\" --fix"
+    "style": "stylelint \"src/**/*.(vue|scss|css)\" --fix",
+    "qn": "node scripts/upload.js"
   },
   "keywords": [
     "vue3",
@@ -19,6 +20,7 @@
   "author": "Allen",
   "dependencies": {
     "nprogress": "0.2.0",
+    "qiniu": "^7.7.0",
     "vue": "3.2.33",
     "vue-router": "4.0.14"
   },
