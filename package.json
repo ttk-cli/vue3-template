@@ -50,9 +50,11 @@
     "unplugin-auto-import": "0.7.1",
     "unplugin-vue-components": "0.19.3",
     "vite": "3.0.2",
+    "vite-plugin-html": "3.2.0",
     "vite-plugin-pages": "0.25.0",
     "vue-global-api": "0.4.1",
-    "vue-tsc": "0.34.10"
+    "vue-tsc": "0.34.10",
+    "rollup-plugin-external-globals": "0.6.1"
   },
   "engines": {
     "node": ">=16.0.0"

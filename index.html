@@ -10,6 +10,14 @@
     <meta name="revisit-after" content="7 days" />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <title>vue3-template</title>
+    <!-- 使用CDN的CSS文件 -->
+    <% for (const i of cdnCss) { %>
+    <link href="<%= i %>" rel="stylesheet" />
+    <% } %>
+    <!-- 使用CDN的JS文件 -->
+    <% for (const i of cdnJs) { %>
+    <script src="<%= i %>" defer></script>
+    <% } %>
   </head>
   <body>
     <div id="app">

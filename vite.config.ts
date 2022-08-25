@@ -1,10 +1,22 @@
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
+import externalGlobals from 'rollup-plugin-external-globals'
 import Unocss from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vite'
+import { createHtmlPlugin } from 'vite-plugin-html'
 import Pages from 'vite-plugin-pages'
+
+const isBuild = process.env.npm_lifecycle_event === 'build'
+
+const cdn = {
+  css: [],
+  js: [
+    'https://unpkg.com/vue@3.2.6/dist/vue.global.prod.js',
+    'https://unpkg.com/vue-router@4.0.3/dist/vue-router.global.js',
+  ],
+}
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -34,6 +46,22 @@ export default defineConfig({
     vue(),
     Unocss(),
     Pages(),
+    {
+      ...externalGlobals({
+        vue: 'Vue',
+        'vue-router': 'VueRouter',
+      }),
+      enforce: 'post',
+      apply: 'build',
+    },
+    createHtmlPlugin({
+      inject: {
+        data: {
+          cdnCss: isBuild ? cdn.css : [],
+          cdnJs: isBuild ? cdn.js : [],
+        },
+      },
+    }),
   ],
   server: {
     port: 3000,
@@ -60,6 +88,7 @@ export default defineConfig({
       },
     }, // 去除 console debugger
     rollupOptions: {
+      external: ['vue', 'vue-router'],
       manualChunks(id) {
         if (id.includes('node_modules')) {
           return id.toString().split('node_modules/')[1].split('/')[0].toString()
